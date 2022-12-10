@@ -1,0 +1,103 @@
+<html>
+  <head><link rel="stylesheet" href="css1.css" type="text/css">
+  <style>
+    body {
+  background-color:rgb(171, 180, 105);
+}
+  </style>
+  </head>
+  <script>
+    function myFunction() {
+    var input, filter, table, tr, td, i, ii,count1=0;
+    input = document.getElementById("cont1");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("table1");
+    tr = table.querySelectorAll("tr");
+    
+    for (i = 0; i < tr.length; i++) {
+       var tds = tr[i].getElementsByTagName("td");
+      
+       var found = false;
+       for (ii = 0; ii < tds.length && !found; ii++) {
+          if (tds[ii].textContent.toUpperCase().indexOf(filter) > -1) {
+            found = true;
+            count1=count1+1;
+            break;
+        }
+    }
+    tr[i].style.display = found?"":"none";
+}
+document.getElementById('count').innerHTML = count1;
+var rowCount = $('#table1 >tbody >tr:visible').length;
+document.getElementById('count').innerHTML = rowCount;
+
+}
+</script>
+
+<body>
+
+<p>
+      <input type="text" id="cont1" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+      <br><p id="count" style="text-align:center;">search results:</p>
+        <table id="table1">
+          <tr class="header">
+            <th style="width:20%;">Name of the Book</th>
+            <th style="width:20%;">Category</th>
+            <th style="width:20%;">Price</th>
+          </tr>
+          <tr>
+            <td>Computations</td>
+            <td>Maths</td>
+            <td>Rs.500</td>
+          </tr>
+          <tr>
+            <td>Statistics</td>
+            <td>Maths</td>
+            <td>Rs.550</td>
+          </tr>
+          <tr>
+            <td>Algebra</td>
+            <td>Maths</td>
+            <td>Rs.400</td>
+          </tr>
+          <tr>
+            <td>Force and Energy</td>
+            <td>Physics</td>
+            <td>Rs.300</td>
+          </tr>
+          <tr>
+            <td>Gravitational Force</td>
+            <td>Physics</td>
+            <td>Rs.350</td>
+          </tr>
+          <tr>
+            <td>Chemical Bonding</td>
+            <td>Chemistry</td>
+            <td>Rs.450</td>
+          </tr>
+          <tr>
+            <td>Periodic Table</td>
+            <td>Chemistry</td>
+            <td>Rs.480</td>
+          </tr>
+          <tr>
+            <td>Web Development</td>
+            <td>Programming Language</td>
+            <td>Rs.680</td>
+          </tr>
+          <tr>
+            <td>C++ Language</td>
+            <td>Programming Language</td>
+            <td>Rs.580</td>
+          </tr>
+          <tr>
+            <td>Python and Database Language</td>
+            <td>Programming Language</td>
+            <td>Rs.780</td>
+          </tr>
+        </table>
+        
+       
+
+    </body>
+</html>
